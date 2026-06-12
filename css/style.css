@@ -1,0 +1,239 @@
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+
+  /* ---------- CSS VARIABLES ---------- */
+  :root {
+      --primary: #2563eb;
+      --dark: #0f172a;
+      --light: #5091d2;
+      --muted: #000000;
+      --radius: 12px;
+      --transition: 0.3s ease;
+  }
+
+  html {
+      scroll-behavior: smooth;
+  }
+
+  body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+  }
+
+  img {
+      max-width: 100%;
+      display: block;
+  }
+
+  a {
+      text-decoration: none;
+      color: inherit;
+  }
+
+  /* ---------- LAYOUT ---------- */
+  .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+  }
+
+  section {
+      padding: 5rem 0;
+  }
+
+  /* ---------- NAV ---------- */
+  header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(155, 204, 254, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+  }
+
+  .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+  }
+
+  .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+  }
+
+  .nav-links {
+      display: flex;
+      gap: 2rem;
+  }
+
+  .nav-links a {
+      font-size: 0.95rem;
+      color: var(--muted);
+      transition: var(--transition);
+  }
+
+  .nav-links a:hover {
+      color: var(--primary);
+  }
+
+  .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+  }
+
+  .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      margin-bottom: 1rem;
+  }
+
+  .hero p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+  }
+
+  .btn {
+      display: inline-block;
+      padding: 0.8rem 1.6rem;
+      background: var(--primary);
+      color: white;
+      border-radius: var(--radius);
+      transition: var(--transition);
+  }
+
+  .btn:hover {
+      transform: translateY(-3px);
+  }
+
+  /* ---------- SECTIONS ---------- */
+  .section-title {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about p {
+      max-width: 700px;
+      margin: auto;
+      text-align: center;
+      color: var(--muted);
+  }
+
+  /* ---------- PROJECTS ---------- */
+  .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+  }
+
+  .project {
+      background: rgb(208, 218, 225);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+  }
+
+  .project:hover {
+      transform: translateY(-6px);
+  }
+
+  .project h3 {
+      margin-bottom: 0.5rem;
+  }
+
+  .project p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+  }
+
+  .project a {
+      font-size: 0.9rem;
+      color: var(--primary);
+      font-weight: 600;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+  }
+
+  .skill {
+      padding: 0.6rem 1.2rem;
+      background: white;
+      border-radius: var(--radius);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      font-size: 0.9rem;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact p {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: var(--muted);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+  }
+
+  /* ---------- ANIMATIONS ---------- */
+  .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: 0.6s ease;
+  }
+
+  .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 768px) {
+      .nav-links {
+          position: absolute;
+          top: 70px;
+          right: 0;
+          background: white;
+          flex-direction: column;
+          width: 200px;
+          padding: 1.5rem;
+          transform: translateX(100%);
+          transition: var(--transition);
+      }
+
+      .nav-links.open {
+          transform: translateX(0);
+      }
+
+      .nav-toggle {
+          display: block;
+      }
+  }
